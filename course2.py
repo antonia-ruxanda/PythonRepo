@@ -15,5 +15,5 @@ print('Ascending list:', ascList)
 print('Descending list', descList)
 print('Even list', evenList)
 print('Odd list', oddList)
-print('Multiplies of 3', multiplyList)
+print('Multiplies of 3 list', multiplyList)
 
