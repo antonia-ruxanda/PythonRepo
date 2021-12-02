@@ -8,5 +8,5 @@ class Location(models.Model):
     city = models.CharField(max_length=100)
     country = models.CharField(max_length=100)
 
-    def str(self):
+    def __str__(self):
         return f"{self.city} {self.country}"
