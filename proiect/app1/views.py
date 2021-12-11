@@ -17,8 +17,6 @@ from app1.models import Location
 
 class CreateLocationView(LoginRequiredMixin, CreateView):
     model = Location
-    # fields = 'all'
-    # fields = ['city', 'country']
     form_class = LocationForm
     template_name = 'app1/location_form.html'
 

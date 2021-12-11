@@ -10,5 +10,8 @@ class Job(models.Model):
     customer = models.ForeignKey('app2.Companies', on_delete=models.CASCADE)
     active = models.IntegerField(default=1)
 
+    def __str__(self):
+        return f"{self.name} {self.description}"
+
 # se real Create, Read, Update, Delete(CRUD) pentru modulul de jobs.
 # trebuie sa avem o validare in care sa nu existe job cu nume si customer identice
