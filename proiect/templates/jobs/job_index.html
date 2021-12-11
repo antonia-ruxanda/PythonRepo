@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <style>
+        .add_button {
+            width: 10%;
+            color: darkred;
+            background-color: palevioletred;
+            text-decoration: none;
+            border: 2px solid darkred;
+        }
+
+        .update_button {
+            width: 10%;
+            color: purple;
+            background-color: mediumpurple;
+            text-decoration: none;
+            border: 2px solid darkorchid;
+        }
+
+        .remove_button {
+            width: 10%;
+            color: darkcyan;
+            background-color: lightcyan;
+            text-decoration: none;
+            border: 2px solid cyan;
+        }
+
+        table > thead > tr {
+            background-color: grey;
+        }
+        table > thead > tr > th {
+            width: 10%;
+        }
+    </style>
+    <br><br><br>
+
+    <a class="add_button" href="{% url 'jobs:add_job' %}">Add new job</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Index</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Url</th>
+                <th>Customer</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in job_list %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ item.name|upper }}</td>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.url }}</td>
+                    <td>{{ item.customer }}</td>
+                    <td><a class="update_button" href="{% url 'jobs:modify_job' item.id %}">Update job</a>
+                    <a class="remove_button" href="{% url 'jobs:remove_job' item.id %}">Remove job</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
